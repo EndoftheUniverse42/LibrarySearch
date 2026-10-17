@@ -51,7 +51,18 @@ function parseGoggle(text) {
 async function loadAllowlist() {
   const res = await fetch(GOGGLE_URL, { headers: { Accept: "text/plain" } });
   if (!res.ok) throw new Error(`Could not fetch Goggle ${GOGGLE_URL}: HTTP ${res.status}`);
-  const { sites, version } = parseGoggle(await res.text());
+  const ctype = (res.headers.get("content-type") || "").toLowerCase();
+  const body = await res.text();
+  // A GitHub /blob/ URL returns an HTML page that still contains the file text,
+  // so a naive parser finds plausible-looking rules and the service boots with a
+  // corrupt allowlist. Reject HTML outright rather than relying on a zero check.
+  if (ctype.includes("text/html") || /^\s*<(!doctype|html)/i.test(body)) {
+    throw new Error(
+      `GOGGLE_URL returned HTML, not a Goggle file (content-type: ${ctype}). ` +
+      `If this is a github.com/.../blob/... URL, use the raw.githubusercontent.com form.`
+    );
+  }
+  const { sites, version } = parseGoggle(body);
   if (sites.length === 0) throw new Error("Goggle parsed to zero site rules - refusing to start");
   ALLOW = sites;
   if (version) LIST_VERSION = version;
