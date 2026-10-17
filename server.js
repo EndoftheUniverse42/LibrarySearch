@@ -1,6 +1,6 @@
-// MCP server: Brave Search restricted to the health external-drivers Goggle.
-// Third of three Goggle servers (NHS domains, professional bodies, external
-// drivers), each a separate connector so the strands can be enabled and
+// MCP server: Brave Search restricted to the health-librarianship
+// professional-bodies Goggle. Companion to the NHS-domain Goggle server;
+// deliberately a SEPARATE connector so the two strands can be enabled and
 // disabled independently and their provenance never conflated.
 //
 // The Goggle boosts rather than restricts, so this server over-fetches from
@@ -8,7 +8,7 @@
 //
 // Required environment variables (set as secrets in the Render dashboard):
 //   BRAVE_API_KEY  - Brave Search API subscription token
-//   GOGGLE_URL     - public URL of external_drivers.goggle
+//   GOGGLE_URL     - public URL of health_librarianship_bodies.goggle
 // Optional:
 //   GOGGLE_PARAM   - "goggles" (default) or "goggles_id" for older API plans
 //   LIST_VERSION   - fallback only; normally parsed from the Goggle header
@@ -120,24 +120,22 @@ async function braveSearch(query, count) {
 
 function buildServer() {
   const server = new McpServer({
-    name: "health-external-drivers-search",
+    name: "health-lib-bodies-search",
     version: "1.0.0",
   });
 
   server.registerTool(
-    "search_external_drivers",
+    "search_professional_bodies",
     {
-      title: "Search wider healthcare and supplier context",
+      title: "Search health librarianship professional bodies",
       description:
-        "Web search restricted by Goggle to the external environment around health "+
-        "library and knowledge services: multilateral bodies (WHO, OECD, European "+
-        "Observatory), government health departments, evidence and HTA organisations "+
-        "(Cochrane, JBI, NICE, CDA-AMC, AHRQ), and commercial suppliers (OCLC, "+
-        "Clarivate, EBSCO, ProQuest and publishers). Returns structured JSON; join "+
-        "hostname back to the domain list to recover the tier. NONE of this is UK "+
-        "professional evidence. Commercial-tier results are vendor-stated signals "+
-        "with a commercial interest and must never be reported as findings. "+
-        "Supports no completeness claim.",
+        "Web search restricted by Goggle to professional and membership bodies " +
+        "for health library and knowledge services (CILIP and its Health Libraries " +
+        "Group, MLA, CHLA/ABSC, Health Libraries Australia, EAHIL, IFLA and others, " +
+        "UK and international). Returns structured JSON. This strand is the " +
+        "profession's own discourse and is advocacy-inflected; international " +
+        "material describes other health systems and is horizon-scanning evidence, " +
+        "not UK evidence. Supports no completeness claim.",
       inputSchema: {
         query: z.string().min(1).describe("The search query"),
         count: z
@@ -205,5 +203,5 @@ app.delete("/mcp", methodNotAllowed);
 const port = process.env.PORT || 3000;
 await loadAllowlist();   // refuse to start on an unreachable or empty Goggle
 app.listen(port, () => {
-  console.log(`health-external-drivers MCP listening on ${port}`);
+  console.log(`health-lib-bodies MCP listening on ${port}`);
 });
