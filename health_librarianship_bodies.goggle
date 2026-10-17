@@ -1,58 +1,64 @@
 ! name: Health Librarianship Professional Bodies
-   $discard
-   $site=cdn.ymaws.com
-! description: Professional and membership bodies for health library and knowledge services, UK and international. Companion to the NHS domain Goggle; kept separate so provenance is never conflated.
+! description: Surfaces results only from a curated list of health library and knowledge services professional bodies
 ! public: false
-! issues: v1.2 2026-10-17 | 39 domains | all verified
-
+! author: H
+!
+! Companion to the GandalftheGreyLiterature NHS Goggle, kept separate so the two
+! strands can be enabled independently and their provenance never conflated.
+! International bodies are horizon-scanning evidence, not UK evidence.
+!
+! Domain list v1.3 (2026-10-17), 43 entries, all verified.
+! cdn.ymaws.com and *.memberclicks.net / *.libguides.com are SHARED platforms:
+! filter retrieved URLs client-side on the organisation path before use.
+!
+$discard
+!
 ! ---- UK professional bodies ----
-$site=cdn.ymaws.com
-$site=cilip.org.uk
-$site=ciliphlg.com
-$site=cilips.org.uk
-$site=hlg-conference.com
-$site=www.cilip.org.uk
-$site=www.cilips.org.uk
-$site=www.hlg-conference.com
-
-! ---- UK adjacent (infrastructure, academic and research libraries) ----
-$site=jisc.ac.uk
-$site=rluk.ac.uk
-$site=sconul.ac.uk
-$site=www.jisc.ac.uk
-$site=www.rluk.ac.uk
-$site=www.sconul.ac.uk
-
-! ---- International bodies: DRIVERS EVIDENCE ONLY, never UK evidence ----
-$site=aflia.net
-$site=ala.org
-$site=alia.org.au
-$site=chla-absc.ca
-$site=cla.ca
-$site=eahil.eu
-$site=hla.alia.org.au
-$site=ifla.org
-$site=lianza.org.nz
-$site=libraryassociation.ie
-$site=mlanet.org
-$site=nnlm.gov
-$site=ojs.eahil.eu
-$site=read.alia.org.au
-$site=shla.chla-absc.ca
-$site=web.aflia.net
-$site=www.ala.org
-$site=www.alia.org.au
-$site=www.chla-absc.ca
-$site=www.cla.ca
-$site=www.eahil.eu
-$site=www.ifla.org
-$site=www.lianza.org.nz
-$site=www.mlanet.org
-$site=www.nnlm.gov
-
-! NOTE cdn.ymaws.com is a shared association CDN. If your Goggle dialect supports
-! path patterns, narrow it to  cdn.ymaws.com/www.cilip.org.uk/*  before publishing.
-! NOTE Subdomains carry real content: MLA chapters on *.mlanet.org, SCONUL Access on
-! access.sconul.ac.uk, AfLIA on web.aflia.net. Confirm your dialect matches subdomains.
-! NOTE cla.ca - the Canadian Library Association wound up in 2016 (successor CFLA-FCAB).
-! Treat anything retrieved from it as historical unless the page says otherwise.
+$boost,site=archive.cilip.org.uk
+$boost,site=cdn.ymaws.com
+$boost,site=cilip.org.uk
+$boost,site=ciliphlg.com
+$boost,site=cilips.org.uk
+$boost,site=hlg-conference.com
+$boost,site=www.cilip.org.uk
+$boost,site=www.cilips.org.uk
+$boost,site=www.hlg-conference.com
+!
+! ---- UK adjacent: infrastructure, academic and research libraries ----
+$boost,site=jisc.ac.uk
+$boost,site=rluk.ac.uk
+$boost,site=sconul.ac.uk
+$boost,site=www.jisc.ac.uk
+$boost,site=www.rluk.ac.uk
+$boost,site=www.sconul.ac.uk
+!
+! ---- International bodies - DRIVERS EVIDENCE ONLY ----
+$boost,site=aahsl.memberclicks.net
+$boost,site=aflia.net
+$boost,site=ala.org
+$boost,site=alia.org.au
+$boost,site=chla-absc.ca
+$boost,site=cla.ca
+$boost,site=eahil.eu
+$boost,site=hla.alia.org.au
+$boost,site=ifla.org
+$boost,site=jmla.mlanet.org
+$boost,site=lianza.org.nz
+$boost,site=libraryassociation.ie
+$boost,site=mlanet.libguides.com
+$boost,site=mlanet.org
+$boost,site=nnlm.gov
+$boost,site=ojs.eahil.eu
+$boost,site=read.alia.org.au
+$boost,site=shla.chla-absc.ca
+$boost,site=web.aflia.net
+$boost,site=www.ala.org
+$boost,site=www.alia.org.au
+$boost,site=www.chla-absc.ca
+$boost,site=www.cla.ca
+$boost,site=www.eahil.eu
+$boost,site=www.ifla.org
+$boost,site=www.lianza.org.nz
+$boost,site=www.mlanet.org
+$boost,site=www.nnlm.gov
+!
