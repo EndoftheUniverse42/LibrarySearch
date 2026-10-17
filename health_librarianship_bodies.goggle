@@ -1,0 +1,56 @@
+! name: Health Librarianship Professional Bodies
+! description: Professional and membership bodies for health library and knowledge services, UK and international. Companion to the NHS domain Goggle; kept separate so provenance is never conflated.
+! public: false
+! issues: v1.2 2026-10-17 | 39 domains | all verified
+
+! ---- UK professional bodies ----
+$site=cdn.ymaws.com
+$site=cilip.org.uk
+$site=ciliphlg.com
+$site=cilips.org.uk
+$site=hlg-conference.com
+$site=www.cilip.org.uk
+$site=www.cilips.org.uk
+$site=www.hlg-conference.com
+
+! ---- UK adjacent (infrastructure, academic and research libraries) ----
+$site=jisc.ac.uk
+$site=rluk.ac.uk
+$site=sconul.ac.uk
+$site=www.jisc.ac.uk
+$site=www.rluk.ac.uk
+$site=www.sconul.ac.uk
+
+! ---- International bodies: DRIVERS EVIDENCE ONLY, never UK evidence ----
+$site=aflia.net
+$site=ala.org
+$site=alia.org.au
+$site=chla-absc.ca
+$site=cla.ca
+$site=eahil.eu
+$site=hla.alia.org.au
+$site=ifla.org
+$site=lianza.org.nz
+$site=libraryassociation.ie
+$site=mlanet.org
+$site=nnlm.gov
+$site=ojs.eahil.eu
+$site=read.alia.org.au
+$site=shla.chla-absc.ca
+$site=web.aflia.net
+$site=www.ala.org
+$site=www.alia.org.au
+$site=www.chla-absc.ca
+$site=www.cla.ca
+$site=www.eahil.eu
+$site=www.ifla.org
+$site=www.lianza.org.nz
+$site=www.mlanet.org
+$site=www.nnlm.gov
+
+! NOTE cdn.ymaws.com is a shared association CDN. If your Goggle dialect supports
+! path patterns, narrow it to  cdn.ymaws.com/www.cilip.org.uk/*  before publishing.
+! NOTE Subdomains carry real content: MLA chapters on *.mlanet.org, SCONUL Access on
+! access.sconul.ac.uk, AfLIA on web.aflia.net. Confirm your dialect matches subdomains.
+! NOTE cla.ca - the Canadian Library Association wound up in 2016 (successor CFLA-FCAB).
+! Treat anything retrieved from it as historical unless the page says otherwise.
