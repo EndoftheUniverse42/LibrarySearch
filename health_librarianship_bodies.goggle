@@ -1,4 +1,6 @@
 ! name: Health Librarianship Professional Bodies
+   $discard
+   $site=cdn.ymaws.com
 ! description: Professional and membership bodies for health library and knowledge services, UK and international. Companion to the NHS domain Goggle; kept separate so provenance is never conflated.
 ! public: false
 ! issues: v1.2 2026-10-17 | 39 domains | all verified
