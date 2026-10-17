@@ -1,6 +1,6 @@
 {
-  "name": "mcp-health-lib-bodies",
-  "version": "1.0.0",
+  "name": "mcp-health-external-drivers",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "description": "MCP server exposing Brave Search restricted to a health-librarianship professional-bodies Goggle.",
